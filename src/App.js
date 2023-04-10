@@ -6,7 +6,7 @@ import './App.css';
 function App() {
   return (
     <div>
-      <Header creator={"Joshua Coffey"} />
+      <Header />
       <Main />
       <Footer author={"Joshua Coffey"}/>
     </div>
