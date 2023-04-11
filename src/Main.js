@@ -1,27 +1,125 @@
 import { Component } from "react";
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Image from 'react-bootstrap/Image';
 
 class Main extends Component {
+
     render() {
+
+        const beastImages = this.props.imageUrls;
+
         return (
             <>
-                <HornedBeast title="uniwhal" imageUrl="http://3.bp.blogspot.com/_DBYF1AdFaHw/TE-f0cDQ24I/AAAAAAAACZg/l-FdTZ6M7z8/s1600/Unicorn_and_Narwhal_by_dinglehopper.jpg" description="A unicorn and a narwhal nuzzling their horns" />
+                <div>
+                    <h2>{this.props.message}</h2>
 
-                <HornedBeast title="Rhino Family" imageUrl="https://images.unsplash.com/photo-1512636618879-bbe79107e9e3?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=bd9460ee6d1ddbb6b1ca7be86dfc4590&auto=format&fit=crop&w=1825&q=80" description="Parent rhino with two babies" />
+                    <Container>
+                        <Row>
+                            <Col>
+                                <BeastImage image_url={beastImages[0].image_url} />
+                            </Col>
+                            <Col>
+                                <BeastImage image_url={beastImages[1].image_url} />
+                            </Col>
+                            <Col>
+                                <BeastImage image_url={beastImages[2].image_url} />
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col>
+                                <BeastImage image_url={beastImages[3].image_url} />
+                            </Col>
+                            <Col>
+                                <BeastImage image_url={beastImages[4].image_url} />
+                            </Col>
+                            <Col>
+                                <BeastImage image_url={beastImages[5].image_url} />
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col>
+                                <BeastImage image_url={beastImages[6].image_url} />
+                            </Col>
+                            <Col>
+                                <BeastImage image_url={beastImages[7].image_url} />
+                            </Col>
+                            <Col>
+                                <BeastImage image_url={beastImages[8].image_url} />
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col>
+                                <BeastImage image_url={beastImages[9].image_url} />
+                            </Col>
+                            <Col>
+                                <BeastImage image_url={beastImages[10].image_url} />
+                            </Col>
+                            <Col>
+                                <BeastImage image_url={beastImages[11].image_url} />
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col>
+                                <BeastImage image_url={beastImages[12].image_url} />
+                            </Col>
+                            <Col>
+                                <BeastImage image_url={beastImages[13].image_url} />
+                            </Col>
+                            <Col>
+                                <BeastImage image_url={beastImages[14].image_url} />
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col>
+                                <BeastImage image_url={beastImages[15].image_url} />
+                            </Col>
+                            <Col>
+                                <BeastImage image_url={beastImages[16].image_url} />
+                            </Col>
+                            <Col>
+                                <BeastImage image_url={beastImages[17].image_url} />
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col>
+                                <BeastImage image_url={beastImages[18].image_url} />
+                            </Col>
+                            <Col>
+                                <BeastImage image_url={beastImages[19].image_url} />
+                            </Col>
+                        </Row>
+
+                    </Container>
+                </div>
             </>
         );
     }
 }
 
-class HornedBeast extends Component {
+class BeastImage extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            "status": "Yay"
+        }
+    }
+
+    handleClick = () => {
+        const newStatus = this.state.status === "Nay" ? "Yay" : "Nay";
+        this.setState({
+            status: newStatus
+        });
+    }
+
     render() {
         return (
-            <>
-                <h2> {this.props.title} </h2>
-
-                <img title={this.props.title} src={this.props.imageUrl} alt={this.props.description} />
-
-                <p>{this.props.description}</p>
-            </>
+            <div onClick={this.handleClick}>
+                <Image src={this.props.image_url} alt="some horned beast" rounded fluid />
+                <h3>{this.state.status}</h3>
+            </div>
         );
     }
 }
