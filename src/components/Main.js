@@ -30,7 +30,7 @@ class Main extends Component {
               return (
                 <Col xs={6} md={3}>
                   <HornedBeast
-                    key={beasts._id}
+                    key={beasts.title}
                     title={beasts.title}
                     imageUrl={beasts.image_url}
                     description={beasts.description}
