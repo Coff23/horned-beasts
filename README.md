@@ -71,12 +71,12 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 #### Time Estimates
 
-- Number and name of the feature
+- Number and name of the feature: Modal
 
-- Estimeate of time needed to complete
+- Estimeate of time needed to complete: 5+hours
 
-- start time
+- start time: 4pm central roughly
 
-- finish time
+- finish time: 6:45 pm central roughly
 
-- actual time needed to complete
+- actual time needed to complete: 2 hours 45 minutes
