@@ -4,7 +4,6 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import HornedBeast from "./HornedBeast";
 import beasts from "../beasts.json";
-import BeastModal from "./modal";
 
 class Main extends Component {
   constructor(props) {
@@ -41,25 +40,6 @@ class Main extends Component {
             })}
           </Row>
         </Container>
-        <BeastModal show={this.state.showModal} onClose={this.handleCloseModal}>
-          {this.state.selectedBeast !== null &&
-            this.state.selectedBeast !== undefined && (
-              <>
-                <BeastModal.Header closeButton>
-                  <BeastModal.Title>
-                    {this.state.selectedBeast.title}
-                  </BeastModal.Title>
-                </BeastModal.Header>
-                <BeastModal.Body>
-                  <img
-                    src={this.state.selectedBeast.imageUrl}
-                    alt={this.state.selectedBeast.title}
-                  />
-                  <p>{this.state.selectedBeast.description}</p>
-                </BeastModal.Body>
-              </>
-            )}
-        </BeastModal>
       </>
     );
   }
