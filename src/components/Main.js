@@ -4,6 +4,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import HornedBeast from "./HornedBeast";
 import beasts from "../beasts.json";
+import FilterBeast from "./FilterBeast";
 
 class Main extends Component {
   constructor(props) {
@@ -11,6 +12,7 @@ class Main extends Component {
     this.state = {
       showModal: false,
       selectedBeasts: null,
+      filteredBeasts: beasts,
     };
   }
 
@@ -21,12 +23,36 @@ class Main extends Component {
   handleCloseModal = () => {
     this.setState({ showModal: false, selectedBeast: null });
   };
+
+  handleChange = (event) => {
+    const selection = event.target.value;
+
+    let filteredBeasts = beasts.filter((beasts) => {
+      if (selection === "One horn") {
+        return beasts.horns === 1;
+      }
+      if (selection === "Two horns") {
+        return beasts.horns === 2;
+      }
+      if (selection === "Three horns") {
+        return beasts.horns === 3;
+      }
+      if (selection === "One hundred horns") {
+        return beasts.horns === 100;
+      } else {
+        return beasts;
+      }
+    });
+    this.setState({ filteredBeasts: filteredBeasts });
+  };
+
   render() {
     return (
       <>
+        <FilterBeast handleChange={this.handleChange} />
         <Container>
           <Row>
-            {beasts.map((beasts) => {
+            {this.state.filteredBeasts.map((beasts) => {
               return (
                 <Col xs={6} md={3}>
                   <HornedBeast
