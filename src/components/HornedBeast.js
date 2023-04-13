@@ -16,7 +16,6 @@ class HornedBeast extends Component {
   };
 
   handleClose = () => {
-    console.log("close");
     this.setState({
       showModal: false,
     });
